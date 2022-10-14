@@ -1,4 +1,3 @@
-
 /***************************************************************
  * 
  * @author Rakib Shahid
@@ -28,15 +27,15 @@ public class Project1 {
 
             // Check for vowels in the line, increment respective counter in vowelCounters array
             for (int i = 0; i < currentLine.length(); i++) {
-                if (currentLine.charAt(i) == 'a') {
+                if (currentLine.charAt(i) == 'a' || currentLine.charAt(i) == 'A') {
                     vowelCounters[0]++;
-                } else if (currentLine.charAt(i) == 'e') {
+                } else if (currentLine.charAt(i) == 'e' || currentLine.charAt(i) == 'E') {
                     vowelCounters[1]++;
-                } else if (currentLine.charAt(i) == 'i') {
+                } else if (currentLine.charAt(i) == 'i' || currentLine.charAt(i) == 'I') {
                     vowelCounters[2]++;
-                } else if (currentLine.charAt(i) == 'o') {
+                } else if (currentLine.charAt(i) == 'o' || currentLine.charAt(i) == 'O') {
                     vowelCounters[3]++;
-                } else if (currentLine.charAt(i) == 'u') {
+                } else if (currentLine.charAt(i) == 'u' || currentLine.charAt(i) == 'U') {
                     vowelCounters[4]++;
                 }
             }

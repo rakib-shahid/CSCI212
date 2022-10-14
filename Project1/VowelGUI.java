@@ -1,3 +1,10 @@
+/***************************************************************
+ * 
+ * @author Rakib Shahid
+ *         A GUI made for Project1, displays the input text and the number of vowels in that text
+ *
+ */
+
 import java.awt.*;
 import javax.swing.*;
 
