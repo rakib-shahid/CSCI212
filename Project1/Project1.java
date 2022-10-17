@@ -43,6 +43,9 @@ public class Project1 {
             // Read in the next line
             currentLine = myFile.readLine();
         }
+        String[] stringArray = {"3","2"};
+        System.out.println(stringArray.length());
+
 
         // Use VowelGUI to display the final output
         VowelGUI myGUI = new VowelGUI(originalText, vowelCounters);
