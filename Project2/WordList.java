@@ -5,6 +5,10 @@ public class WordList {
 
    protected int length = 0;
 
+   /**
+    * append method that adds the new node to the end of the list
+    * @param node new node to be appended
+    */
    public void append(WordNode node){
       if (this.first.data == null){
          this.first = node;
@@ -17,6 +21,10 @@ public class WordList {
       length++;
    }
 
+   /**
+    * method that returns the length of the list
+    * @return length of the list
+    */
    public int getLength() {
 		return length;
 	}

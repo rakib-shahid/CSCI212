@@ -44,7 +44,7 @@ public class Project1 {
             currentLine = myFile.readLine();
         }
         String[] stringArray = {"3","2"};
-        System.out.println(stringArray.length());
+        System.out.println(stringArray.length);
 
 
         // Use VowelGUI to display the final output
