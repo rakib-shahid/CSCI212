@@ -1,5 +1,19 @@
-Dolorum laboriosam deleniti blanditiis. Harum omnis est esse distinctio. Sunt optio distinctio pariatur voluptas rem quasi quasi dolorem.
+This is an input file for project 1 in CSCI 212, Fall 2022 semester.
+The basic idea of this project is to read lines from
+a file, and count the number of vowels that appear on
+all the lines.
+The actual description of the project is:
 
-Nostrum placeat dolor dignissimos. Nisi nobis et culpa rerum omnis quia. Quam eveniet voluptas vel omnis deleniti. Ab deserunt reprehenderit dolor excepturi ut.
+Write a main application called Project1.java, and a GUI (that extends JFrame) 
+called VowelGUI.java. The main program should open a file called
+“input.txt” which will contain a paragraph.
 
-Voluptatem ut quaerat velit quos et praesentium assumenda veritatis. Deleniti omnis corrupti voluptatem laudantium cum iusto. Corrupti voluptas ut error repudiandae iure deleniti quia a. Atque velit perspiciatis numquam libero. Totam esse et perspiciatis exercitationem. Dicta et reiciendis commodi quia nisi blanditiis a officiis.
+Read the lines from the file until there are no more.
+For each line, count the number of individual vowels in that line,
+using a counter for the vowels ‘A’ and ‘a’, a counter 
+for the vowels ‘E’ and ‘e’, and so forth.
+
+The GUI should have a grid layout of one row 
+and two columns (column 0 and 1). Column 0 should
+contain the original text from the file. Column 1 should contain
+5 lines displaying the count of each of the vowels.

@@ -35,10 +35,12 @@ public class Project2 {
          // for each word, create a new WordNode and:
          //    -append it to unsorted word list
          //    -add it to sorted word list
-         for (String s : wordArray) {
-            WordNode temp = new WordNode(s);
-            myUnsortedWordList.append(temp);
-            mySortedWordList.add(s);
+         if (wordArray[0] != ""){
+            for (String s : wordArray) {
+               WordNode temp = new WordNode(s);
+               myUnsortedWordList.append(temp);
+               mySortedWordList.add(s);
+            }
          }
          fileNextLine = myFile.readLine();
       }
