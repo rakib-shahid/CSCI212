@@ -21,7 +21,9 @@ public class Lab16Main {
 
 		// fill list 1 and list 2 using append and print it.
 		for (int i = 0; i < dataSource.length; i++) {
+			// System.out.println("first element in array = "+dataSource[i]);
 			myList1.append(dataSource[i]);
+			// System.out.println(myList1);
 			myList2.append(dataSource[i]);
 		}
 		System.out.println("Here is myList1: " + myList1);
