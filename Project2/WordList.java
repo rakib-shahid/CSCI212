@@ -1,8 +1,13 @@
+// note: I did this project before fully understanding dummy nodes so no dummy nodes are used
+// project directions does not include node deletion so everything works as intended in the context of this project
+// I will add dummy nodes when necessary in future projects
+
 public class WordList {
+   // first node in list
    public WordNode first = new WordNode(null);
-
+   // last node in list
 	public WordNode last = first;
-
+   // length of list
    protected int length = 0;
 
    /**

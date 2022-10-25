@@ -1,7 +1,12 @@
 public class UnsortedWordList extends WordList{
 
-   // Included because project directions are vague,
-   // overridden but no changes made 
+   /**
+    * Append method that adds a given node to end of an unsorted list
+    * @param node given node to be appended
+    */
+
+   // append method is only included here because project directions are vague,
+   // overridden to include it but no changes made from append method in WordList
    @Override
    public void append(WordNode node){
       if (this.first.data == null){

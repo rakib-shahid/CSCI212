@@ -1,6 +1,8 @@
 public class WordNode
 {
+   // data of node
    public String data;
+   // next node
    public WordNode next;
 
    // default constructor

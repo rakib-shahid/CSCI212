@@ -40,7 +40,7 @@ public class WordGUI extends JFrame {
          if (!sortedNode.data.isEmpty()) {
             sortedList.append(sortedNode.data + "\n");
          }
-            sortedNode = sortedNode.next;
+         sortedNode = sortedNode.next;
       }
 
       // Add TextAreas to JFrame and display it

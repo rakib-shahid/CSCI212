@@ -15,16 +15,17 @@ public class SortedWordList extends WordList {
          // create a new node using given string for adding to the sorted list
          WordNode tempNode = new WordNode(string);
          
-         // check if new string < first node in this list, prepend
+         // prepend if the new node is less than existing first node
          if (this.first.data.compareToIgnoreCase(string) > 0) {
             tempNode.next = this.first;
             this.first = tempNode;
          } 
-         // check if new string > last node in list, append
+         // append if the new node is greater than existing last node
          else if (string.compareToIgnoreCase(this.last.data) > 0) {
             this.append(tempNode);
          } 
          
+         // else find the proper position for the new node within the list
          else {
             // create a new node to iterate through the list and find the right spot for the new node
             WordNode tempIterateNode = this.first;
