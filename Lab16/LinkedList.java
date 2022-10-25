@@ -43,13 +43,16 @@ public class LinkedList {
 	 *            the data element to be appended.
 	 */
 	public void append(String d) {
-		// TODO Code here for append
-		ListNode temp = new ListNode(d);
-		// System.out.println(temp.data);
-		this.last.next = temp;
-		System.out.println(this.toString());
-		// this.last = this.last.next.next;
-
+		ListNode node = new ListNode(d);
+		if (this.first.data == null){
+			this.first = node;
+			this.last = this.first;
+		 }
+		 else {
+			this.last.next = node;
+			this.last = node;
+		 }
+		 length++;
 	} // method append(String)
 
 	/**
@@ -60,10 +63,11 @@ public class LinkedList {
 	 *            the data element to be prepended.
 	 */
 	public void prepend(String d) {
-		// TODO Code here for prepend
-		ListNode temp = this.first;
-		this.first = new ListNode(d);
-		this.first.next = temp;
+		ListNode tempNode = new ListNode(d);
+		if (this.first.data != null){
+			tempNode.next = this.first;
+		}
+		this.first = tempNode;
 	} // method append(String)
 
 	/**
@@ -71,10 +75,12 @@ public class LinkedList {
 	 *         space character
 	 */
 	public String toString() {
-		ListNode p = first.next;
+		ListNode p = first;
 		String returnString = "";
 		while (p != null) {
-			returnString += p.data + " ";
+			if (p.data != null) {
+				returnString += p.data + " ";
+			}
 			p = p.next;
 		}
 		return returnString;
