@@ -11,7 +11,7 @@ public class WordGUI extends JFrame{
         Container myContentPane = this.getContentPane();
         
         // CHANGE
-        TextArea originalText = new TextArea("originalTextString");
+        TextArea originalText = new TextArea("Open a file");
         TextArea vowelNumber = new TextArea();
 
         createFileMenu();
@@ -48,7 +48,7 @@ public class WordGUI extends JFrame{
   
      private void createListMenu(JMenuItem item, JMenuBar menuBar) {
         JMenu       fileMenu = new JMenu("List");
-        ListMenuHandler lmh  = new ListMenuHandler(this);
+        FileMenuHandler lmh  = new FileMenuHandler(this);
   
         item = new JMenuItem("A");    
         item.addActionListener( lmh );
