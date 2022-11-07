@@ -1,7 +1,9 @@
+import javax.lang.model.util.SimpleTypeVisitor14;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class FileMenuHandler implements ActionListener {
    JFrame jframe;
@@ -33,6 +35,20 @@ public class FileMenuHandler implements ActionListener {
    public void readFile(File inputFile){
       String filePath = inputFile.toString();
       Container myContentPane = this.jframe.getContentPane();
+      TextArea leftTextArea = (TextArea)myContentPane.getComponent(0);
+      TextFileInput myInput = new TextFileInput(filePath);
+      String currentLine = myInput.readLine();
+      ArrayList<WordLine> fileText = new ArrayList<>();
+      int i = 1;
+      while (currentLine != null){
+         fileText.add(new WordLine(currentLine, i));
+         i++;
+         currentLine = myInput.readLine();
+      }
+      leftTextArea.setText("");
+      for (WordLine x : fileText){
+         leftTextArea.append(x.toString()+"\n");
+      }
       
    }
 
