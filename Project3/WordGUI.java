@@ -11,7 +11,7 @@ public class WordGUI extends JFrame{
         Container myContentPane = this.getContentPane();
         
         // CHANGE
-        TextArea originalText = new TextArea("Open a file");
+        TextArea originalText = new TextArea();
         TextArea vowelNumber = new TextArea();
 
         createFileMenu();

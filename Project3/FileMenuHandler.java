@@ -17,19 +17,19 @@ public class FileMenuHandler implements ActionListener {
 
       // Check if user clicked any of the vowels under "List" menu item
       switch (menuName) {
-         case "A": 
+         case "A":
             selectVowel("A");
             break;
-         case "E": 
+         case "E":
             selectVowel("E");
             break;
-         case "I": 
+         case "I":
             selectVowel("I");
             break;
-         case "O": 
+         case "O":
             selectVowel("O");
             break;
-         case "U": 
+         case "U":
             selectVowel("U");
             break;
       }
@@ -48,32 +48,36 @@ public class FileMenuHandler implements ActionListener {
 
    } // actionPerformed
 
-   // method that updated right column with appropriate words starting with selected vowel
-   public void selectVowel(String vowel){
-      // System.out.println("You clicked "+vowel);
+   // method that updated right column with appropriate words starting with
+   // selected vowel
+   public void selectVowel(String vowel) {
       ArrayList<WordLine> vowelWords = new ArrayList<>();
       Container myContentPane = this.jframe.getContentPane();
       TextArea leftTextArea = (TextArea) myContentPane.getComponent(0);
-      String[] lines = leftTextArea.getText().split("\n");
-      int i = 1;
-      for (String line: lines){
-         String[] words = line.split(" ");
-         for (String word: words){
-            if (word.charAt(0) == vowel.toLowerCase().charAt(0) ||
-                word.charAt(0) == vowel.charAt(0)
-            ){
-               vowelWords.add(new WordLine(word,i));
+      String leftText = leftTextArea.getText();
+      try {
+         String[] lines = leftText.split("\n");
+         int i = 1;
+         for (String line : lines) {
+            String[] words = line.split(" ");
+            for (String word : words) {
+               if (word.charAt(0) == vowel.toLowerCase().charAt(0) ||
+                     word.charAt(0) == vowel.charAt(0)) {
+                  vowelWords.add(new WordLine(word, i));
+               }
             }
+            i++;
          }
-         i++;
-      }
 
-      TextArea rightTextArea = (TextArea) myContentPane.getComponent(1);
-      String rightColumnText = "";
-      for (WordLine x : vowelWords){
-         rightColumnText += x.toString() + "\n";
+         TextArea rightTextArea = (TextArea) myContentPane.getComponent(1);
+         String rightColumnText = "";
+         for (WordLine x : vowelWords) {
+            rightColumnText += x.toString() + "\n";
+         }
+         rightTextArea.setText(rightColumnText);
+      } catch (Exception e) {
+         JOptionPane.showMessageDialog(null,"Open a file!");
       }
-      rightTextArea.setText(rightColumnText);
    }
 
    public void readFile(File inputFile) {
@@ -89,7 +93,7 @@ public class FileMenuHandler implements ActionListener {
          String filePath = inputFile.toString();
          TextFileInput myInput = new TextFileInput(filePath);
          String currentLine = myInput.readLine();
-         
+
          int i = 1;
          // read input file
          while (currentLine != null) {
