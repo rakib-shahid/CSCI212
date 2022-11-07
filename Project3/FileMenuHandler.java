@@ -71,11 +71,13 @@ public class FileMenuHandler implements ActionListener {
 
          TextArea rightTextArea = (TextArea) myContentPane.getComponent(1);
          String rightColumnText = "";
+         vowelWords.sort(null);
          for (WordLine x : vowelWords) {
             rightColumnText += x.toString() + "\n";
          }
          rightTextArea.setText(rightColumnText);
       } catch (Exception e) {
+         System.out.println(e);
          JOptionPane.showMessageDialog(null,"Open a file!");
       }
    }

@@ -1,4 +1,4 @@
-public class WordLine{
+public class WordLine implements Comparable<WordLine>{
     // default values
     private int lineNumber = -1;
     private String word = "";
@@ -18,4 +18,9 @@ public class WordLine{
     public String toString(){
         return this.getLine() + ": " + this.getWord();
     }
+
+    @Override
+    public int compareTo(WordLine wLine){
+        return (this.getWord().compareTo(wLine.getWord()));
+    } 
 }
