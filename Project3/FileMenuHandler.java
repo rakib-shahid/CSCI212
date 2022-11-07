@@ -56,6 +56,7 @@ public class FileMenuHandler implements ActionListener {
       TextArea leftTextArea = (TextArea) myContentPane.getComponent(0);
       String leftText = leftTextArea.getText();
       try {
+         // Create WordLines from each word that starts with given vowel
          String[] lines = leftText.split("\n");
          int i = 1;
          for (String line : lines) {
@@ -69,16 +70,21 @@ public class FileMenuHandler implements ActionListener {
             i++;
          }
 
+         // Clear right side column
          TextArea rightTextArea = (TextArea) myContentPane.getComponent(1);
          String rightColumnText = "";
+         // Sort the WordLines
          vowelWords.sort(null);
+         // Turn all WordLines into a string to display in right column
          for (WordLine x : vowelWords) {
             rightColumnText += x.toString() + "\n";
          }
+         // Display WordLines of given vowel in right column
          rightTextArea.setText(rightColumnText);
-      } catch (Exception e) {
-         System.out.println(e);
-         JOptionPane.showMessageDialog(null,"Open a file!");
+      } catch (StringIndexOutOfBoundsException e) {
+         // System.out.println(e);
+         // Tell user to open a file first
+         JOptionPane.showMessageDialog(null,"Invalid File");
       }
    }
 
@@ -87,7 +93,10 @@ public class FileMenuHandler implements ActionListener {
          // Get left column TextArea
          Container myContentPane = this.jframe.getContentPane();
          TextArea leftTextArea = (TextArea) myContentPane.getComponent(0);
-         // clear left column
+         TextArea rightTextArea = (TextArea)myContentPane.getComponent(1);
+         
+         // clear columns
+         rightTextArea.setText(null);
          leftTextArea.setText(null);
          fileText.clear();
 
