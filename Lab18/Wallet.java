@@ -38,7 +38,14 @@ public class Wallet {
             m = m.next;
             
         }
-        return billSum+"."+coinSum;
+        billSum += coinSum / 100;
+        coinSum %= 100;
+        String finalString = billSum+".";
+        if (coinSum < 10){
+            finalString += "0"+coinSum;
+        }
+        else finalString += coinSum;
+        return finalString;
 
     }
 }

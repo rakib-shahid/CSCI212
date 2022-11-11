@@ -25,19 +25,27 @@ public class Wallet {
     }
 
     public String getValue() {
-        double sum = 0.00;
+        int coinSum = 0;
+        int billSum = 0;
         MoneyNode m = walletContents.first;
         while (m != null) {
             if (m.data instanceof Bill){
-                sum += ((Bill)(m.data)).getValue();
+                billSum += ((Bill)(m.data)).getValue();
             }
             else{
-                sum += ((Coin)(m.data)).getValue()/100.0;
+                coinSum += ((Coin)(m.data)).getValue();
             }
             m = m.next;
             
         }
-        return Double.toString(sum);
+        billSum += coinSum / 100;
+        coinSum %= 100;
+        String finalString = billSum+".";
+        if (coinSum < 10){
+            finalString += "0"+coinSum;
+        }
+        else finalString += coinSum;
+        return finalString;
 
     }
 }
