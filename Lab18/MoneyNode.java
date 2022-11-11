@@ -1,11 +1,11 @@
-// MoneyNode.java
+// ListNode.java
 
 public class MoneyNode
 {
-   public String data;
+   public Money data;
    public MoneyNode next;
 
-   public MoneyNode(String d)
+   public MoneyNode(Money d)
    {
       data = d;
       next = null;

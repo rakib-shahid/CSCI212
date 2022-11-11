@@ -1,30 +1,44 @@
 
 public class Wallet {
     private MoneyList walletContents = new MoneyList();
-    
-    public Wallet(){
-        walletContents.append(null);
+
+    public Wallet() {
+
     }
-    public void addToWallet(Money m){
-        
+
+    public void addToWallet(Money m) {
+        walletContents.append(m);
     }
-    public void print () {
-        String finalOut = "";
-        MoneyNode tNode = walletContents.first;
-        while (tNode.next.data != null){
-            if (tNode.data.contains("B")){
-                finalOut += "$ "+tNode.data.substring(1)+".00";
+
+    public void print() {
+        MoneyNode m = walletContents.first;
+        while (m != null) {
+            if (m.data instanceof Bill){
+                System.out.println(m.data);
             }
-            else {
-                finalOut += "$ 0."+tNode.data.substring(1);
+            else{
+                System.out.println(m.data);
             }
-            tNode = tNode.next;
+            m = m.next;
+            
         }
-        System.out.println(finalOut);
     }
+
     public String getValue() {
-        return "";
-        
+        int coinSum = 0;
+        int billSum = 0;
+        MoneyNode m = walletContents.first;
+        while (m != null) {
+            if (m.data instanceof Bill){
+                billSum += ((Bill)(m.data)).getValue();
+            }
+            else{
+                coinSum += ((Coin)(m.data)).getValue();
+            }
+            m = m.next;
+            
+        }
+        return billSum+"."+coinSum;
+
     }
-    
-  }
+}

@@ -42,7 +42,7 @@ public class MoneyList {
 	 * @param data
 	 *            the data element to be appended.
 	 */
-	public void append(String d) {
+	public void append(Money d) {
 		MoneyNode node = new MoneyNode(d);
 		if (this.first.data == null){
 			this.first = node;
@@ -62,7 +62,7 @@ public class MoneyList {
 	 * @param data
 	 *            the data element to be prepended.
 	 */
-	public void prepend(String d) {
+	public void prepend(Money d) {
 		MoneyNode tempNode = new MoneyNode(d);
 		if (this.first.data != null){
 			tempNode.next = this.first;

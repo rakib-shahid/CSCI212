@@ -1,4 +1,4 @@
-// MoneyList.java
+// LinkedList.java
 // 
 // This version uses three instance variables,
 // a pointer to the first node, a pointer to
@@ -18,16 +18,16 @@
 public class MoneyList {
 
 	/** First node in linked list - dummy node */
-	private MoneyNode first = new MoneyNode(null);
+	public MoneyNode first = new MoneyNode(null);
 
 	/** Last node in linked list */
-	private MoneyNode last = first;
+	public MoneyNode last = first;
 
 	/** Number of data items in the list. */
 	private int length = 0;
 
 	/**
-	 * Gets the number of data values currently stored in this MoneyList.
+	 * Gets the number of data values currently stored in this LinkedList.
 	 * 
 	 * @return the number of elements in the list.
 	 */
@@ -37,12 +37,12 @@ public class MoneyList {
 	}
 
 	/**
-	 * Appends a String data element to this MoneyList.
+	 * Appends a String data element to this LinkedList.
 	 * 
 	 * @param data
 	 *            the data element to be appended.
 	 */
-	public void append(String d) {
+	public void append(Money d) {
 		MoneyNode node = new MoneyNode(d);
 		if (this.first.data == null){
 			this.first = node;
@@ -57,12 +57,12 @@ public class MoneyList {
 
 	/**
 	 * Prepends (adds to the beginning) a String data element to this
-	 * MoneyList.
+	 * LinkedList.
 	 * 
 	 * @param data
 	 *            the data element to be prepended.
 	 */
-	public void prepend(String d) {
+	public void prepend(Money d) {
 		MoneyNode tempNode = new MoneyNode(d);
 		if (this.first.data != null){
 			tempNode.next = this.first;
@@ -87,17 +87,17 @@ public class MoneyList {
 	}
 
 	/**
-	 * Determines whether this ShortSequenceMoneyList is equal in value to the
+	 * Determines whether this ShortSequenceLinkedList is equal in value to the
 	 * parameter object. They are equal if the parameter is of class
-	 * ShortSequenceMoneyList and the two objects contain the same short
+	 * ShortSequenceLinkedList and the two objects contain the same short
 	 * integer values at each index.
 	 * 
 	 * @param other
-	 *            the object to be compared to this ShortSequenceMoneyList
+	 *            the object to be compared to this ShortSequenceLinkedList
 	 * 
 	 * @return <code>true</code> if the parameter object is a
-	 *         ShortSequenceMoneyList containing the same numbers at each index
-	 *         as this ShortSequenceMoneyList, <code>false</code> otherwise.
+	 *         ShortSequenceLinkedList containing the same numbers at each index
+	 *         as this ShortSequenceLinkedList, <code>false</code> otherwise.
 	 */
 	public boolean equals(Object other) {
 		if (other == null || getClass() != other.getClass()
@@ -120,4 +120,5 @@ public class MoneyList {
 		return true;
 	} // method equals
 
-} // class MoneyList
+
+} // class LinkedList
