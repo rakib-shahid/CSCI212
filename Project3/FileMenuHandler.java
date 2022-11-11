@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
 
 public class FileMenuHandler implements ActionListener {
    public ArrayList<WordLine> fileText = new ArrayList<>();
