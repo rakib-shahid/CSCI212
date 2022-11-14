@@ -48,7 +48,7 @@ public class WordGUI extends JFrame{
   
      private void createListMenu(JMenuItem item, JMenuBar menuBar) {
         JMenu       fileMenu = new JMenu("List");
-        FileMenuHandler lmh  = new FileMenuHandler(this);
+        ListMenuHandler lmh  = new ListMenuHandler(this);
   
         item = new JMenuItem("A");    
         item.addActionListener( lmh );

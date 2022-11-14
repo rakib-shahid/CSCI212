@@ -24,10 +24,12 @@ public class WordLine implements Comparable<WordLine> {
         return lineNumber;
     }
 
+    // toString method for easier printing and conversion to string
     public String toString() {
         return this.getLine() + ": " + this.getWord();
     }
 
+    // override compareTo method to sort easier
     @Override
     public int compareTo(WordLine wLine) {
         return (this.getWord().compareTo(wLine.getWord()));
