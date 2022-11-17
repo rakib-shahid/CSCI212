@@ -2,6 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class WordGUI extends JFrame{
+    // Constructor for GUI
     public WordGUI(){
         setTitle("Rakib Shahid Project3");
         // Set size and Layout
@@ -10,8 +11,9 @@ public class WordGUI extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container myContentPane = this.getContentPane();
         
-        // CHANGE
+        // Left column
         TextArea originalText = new TextArea();
+        // Right column
         TextArea vowelNumber = new TextArea();
 
         createFileMenu();
@@ -22,7 +24,7 @@ public class WordGUI extends JFrame{
         setVisible(true);
     }
 
-
+    // Add File Menu bar
     private void createFileMenu( ) {
         JMenuItem   item;
         JMenuBar    menuBar  = new JMenuBar();
@@ -42,10 +44,17 @@ public class WordGUI extends JFrame{
         setJMenuBar(menuBar);
         menuBar.add(fileMenu);
         
+        // Add List menu to same menu bar
         createListMenu(item, menuBar);
       
      } //createFileMenu
   
+
+     /**
+      * Method that adds List menu to menu bar
+      * @param item Item from createFileMenu()
+      * @param menuBar Menu bar from createFileMenu()
+      */
      private void createListMenu(JMenuItem item, JMenuBar menuBar) {
         JMenu       fileMenu = new JMenu("List");
         ListMenuHandler lmh  = new ListMenuHandler(this);

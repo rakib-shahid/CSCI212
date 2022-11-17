@@ -3,23 +3,34 @@ public class WordLine implements Comparable<WordLine> {
     private int lineNumber = 0;
     private String word = "";
 
-    // constructor
+    /**
+     * Constructor for WordLine
+     * @param w Word
+     * @param n Line number
+     */
     public WordLine(String w, int n) {
         if (n >= 1) {
             this.word = w;
             this.lineNumber = n;
         }
+        // Check if line number is valid
         else {
-            throw new IllegalWordLineException("Illegal Number!");
+            throw new IllegalWordLineException("Illegal Line Number!");
         }
     }
 
-    // get word from WordLine
+    /**
+     * get word from WordLine
+     * @return Returns word
+     */
     public String getWord() {
         return word;
     }
 
-    // get line # from WordLine
+    /**
+     * get line number from WordLine
+     * @return returns line number
+     */
     public int getLine() {
         return lineNumber;
     }
@@ -29,7 +40,7 @@ public class WordLine implements Comparable<WordLine> {
         return this.getLine() + ": " + this.getWord();
     }
 
-    // override compareTo method to sort easier
+    // override compareTo method to sort using sort() method
     @Override
     public int compareTo(WordLine wLine) {
         return (this.getWord().compareTo(wLine.getWord()));

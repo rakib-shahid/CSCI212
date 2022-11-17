@@ -1,7 +1,12 @@
+/**
+ * @author Rakib Shahid
+ * Opens a file, allows user to view words that start with a selected vowel and the line it appears on
+ * 
+ */
 public class Project3{
     
     public static void main(String[] args) {
-        // WordLine myLine = new WordLine("test line", 1);
+        // Create GUI (All logic is in other classes)
         WordGUI myGUI = new WordGUI();
     }
 

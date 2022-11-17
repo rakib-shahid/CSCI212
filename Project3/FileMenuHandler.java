@@ -6,9 +6,12 @@ import java.util.*;
 
 public class FileMenuHandler implements ActionListener {
    public ArrayList<WordLine> fileText = new ArrayList<>();
-   public WordLine[] fileTextArray = new WordLine[10];
    JFrame jframe;
 
+   /**
+    * Constructor for FileMenuHandler
+    * @param jf jframe
+    */
    public FileMenuHandler(JFrame jf) {
       jframe = jf;
    }
@@ -32,11 +35,16 @@ public class FileMenuHandler implements ActionListener {
 
    } // actionPerformed
 
+
+   /**
+    * Reads a file and displays it in left TextArea
+    * @param inputFile Selected file
+    */
    public void readFile(File inputFile) {
       if (inputFile != null) {
-         // Get left column TextArea
+         // Get TextAreas to use later
          Container myContentPane = this.jframe.getContentPane();
-         TextArea leftTextArea = (TextArea) myContentPane.getComponent(0);
+         TextArea leftTextArea = (TextArea)myContentPane.getComponent(0);
          TextArea rightTextArea = (TextArea)myContentPane.getComponent(1);
          
          // clear columns
@@ -49,14 +57,16 @@ public class FileMenuHandler implements ActionListener {
          TextFileInput myInput = new TextFileInput(filePath);
          String currentLine = myInput.readLine();
 
+         // counter for line #
          int i = 1;
          // read input file
          while (currentLine != null) {
-            // create new WordLines for each line
+            // create new WordLines for each line and add it to ArrayList
             fileText.add(new WordLine(currentLine, i));
             i++;
             currentLine = myInput.readLine();
          }
+
          // Set left column to input file with lines numbered
          String leftText = "";
          for (WordLine x : fileText) {
