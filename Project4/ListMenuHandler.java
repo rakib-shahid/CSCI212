@@ -6,8 +6,8 @@ import java.util.*;
 public class ListMenuHandler implements ActionListener {
     JFrame jframe;
 
-    // Create an ArrayList to store WordLines of words that start with the selected vowels
-    ArrayList<WordLine> vowelWords = new ArrayList<>();
+    // Create an TreeMap to store WordLines of words that start with the selected vowels
+    TreeMap<String,WordLine> wordsMap = new TreeMap<>();
 
     public ListMenuHandler(JFrame jf) {
         jframe = jf;
@@ -42,8 +42,8 @@ public class ListMenuHandler implements ActionListener {
      * @param vowel User selected vowel
      */
     public void selectVowel(String vowel) {
-        // Clear the ArrayList each time a new vowel is selected
-        vowelWords.clear();
+        // Clear the TreeMap each time a new vowel is selected
+        wordsMap.clear();
 
         // Get TextAreas from GUI
         Container myContentPane = this.jframe.getContentPane();
@@ -65,28 +65,13 @@ public class ListMenuHandler implements ActionListener {
                 if (word.length() >= 1) {
                     // Check if word starts with selected vowel
                     if (word.toUpperCase().charAt(0) == vowel.charAt(0)) {
-
-                        // checks if the WordLine ArrayList isn't null
-                        if (vowelWords.size() > 0) {
-                            boolean contains = false;
-                            // loop through the WordLine ArrayList to see 
-                            // if a WordLine containing the current word exists
-                            for (WordLine x : vowelWords) {
-                                // if such a WordLine exists, 
-                                // add the current line number to its own line numbers ArrayList
-                                if (x.getWord().equals(word)) {
-                                    x.addLine(i);
-                                    contains = true;
-                                }
-                            }
-                            // if such a WordLine doesn't exist, create a new one and add it
-                            if (!contains) {
-                                vowelWords.add(new WordLine(word, i));
-                            }
-                        } 
-                        // Add a first word to the WordLine ArrayList
+                        // If the map already has a key with the word, add the line number to its WordLine
+                        if (wordsMap.containsKey(word)){
+                            wordsMap.get(word).addLine(i);
+                        }
+                        // Else create a new WordLine
                         else {
-                            vowelWords.add(new WordLine(word, i));
+                            wordsMap.put(word, new WordLine(word, i));
                         }
                     }
                 }
@@ -94,12 +79,12 @@ public class ListMenuHandler implements ActionListener {
             i++;
         }
 
-        // sort WordLine ArrayList
-        vowelWords.sort(null);
+
 
         // Turn all WordLines in the ArrayList into a string to display in right column
-        for (WordLine x : vowelWords) {
-            rightColumnText += x.getWord() + ": " + x.getLine() + "\n";
+        for (String x : wordsMap.keySet()) {
+            rightColumnText += x + ": " + wordsMap.get(x).getLine() + "\n";
+            // rightColumnText += x.getWord() + ": " + x.getLine() + "\n";
         }
         
         // Display WordLines of given vowel in right column
